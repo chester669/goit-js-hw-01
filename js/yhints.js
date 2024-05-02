@@ -343,3 +343,51 @@
 //   }
 // }
 // console.log(findNumber(10, 30, 7));
+
+function getShippingCost(country) {
+  let price;
+
+  switch (country) {
+    case "China":
+      price = 100;
+      break;
+    case "Chile":
+      price = 250;
+      break;
+    case "Australia":
+      price = 170;
+      break;
+    case "Jamaica":
+      price = 120;
+      break;
+    default:
+      return "Sorry, there is no delivery to your country";
+  }
+  return (message = `Shipping to ${country} will cost ${price} credits`);
+}
+
+function checkForSpam(message) {
+  const lowerCaseMessage = message.toLowerCase();
+  const forbiddenWords =
+    lowerCaseMessage.includes("sale") || lowerCaseMessage.includes("spam");
+  return forbiddenWords;
+}
+
+function formatMessage(message, maxLength) {
+  const messageSymbols = message.length;
+  if (messageSymbols > maxLength) {
+    message = message.slice(0, maxLength);
+    return message + "...";
+  } else {
+    return message;
+  }
+}
+
+function makeTransaction(quantity, pricePerDroid, customerCredits) {
+  const totalPrice = quantity * pricePerDroid;
+  if (totalPrice > customerCredits) {
+    return "Insufficient funds!";
+  } else {
+    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+  }
+}
