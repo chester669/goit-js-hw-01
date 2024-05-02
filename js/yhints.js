@@ -251,3 +251,95 @@
 // }
 
 // console.log(createFileName(" train   ", " js  "));
+
+//////////////////////////////////////////////////////////// цикли ////////////////////////////////////////////////////////////
+
+// const number = 3;
+// let adding = 1;
+// let show = 0;
+
+// while (adding <= number) {
+//   show += adding;
+//   adding += 1;
+//   console.log(show);
+// }
+
+// function calculateTotal(number) {
+//   total = 0;
+//   adding = 1;
+//   while (adding <= number) {
+//     total += adding;
+//     adding += 1;
+//   }
+//   return total;
+// }
+// console.log(calculateTotal(3));
+
+/////////////////////////// do ... while ///////////////////////
+
+////////////////////////////////////// for ////////////////////////////////////\
+
+// for (let i = 0; i <= 20; i += 5) {
+//   console.log(i);
+// }
+
+// function calculateTotal(number) {
+//   total = 0;
+//   for (adding = 1; adding <= number; adding += 1) {
+//     total += adding;
+//   }
+//   return total;
+// }
+// console.log(calculateTotal(5));
+
+// function calculateEvenTotal(number) {
+//   total = 0;
+//   for (adding = 2; adding <= number; adding += 2) {
+//     total += adding;
+//   }
+//   return Math.floor(total);
+// }
+// console.log(calculateEvenTotal(27));
+
+// const start = 17;
+// const end = 25;
+// let number;
+// for (let integer = start; integer <= end; integer++) {
+//   if (integer % 5 === 0) {
+//     number = integer;
+//     break;
+//   }
+// }
+// console.log(number);
+
+// const start = 6;
+// const end = 17;
+// let number;
+
+// for (let i = start; i <= end; i++) {
+//   if (i % 5 === 0) {
+//     number = i;
+//     break;
+//   }
+// }
+
+// console.log(number);
+
+// const lineStart = 5;
+// const lineEnd = 15;
+// let dot;
+// for (dot = lineStart; dot <= lineEnd; dot += 5) {
+//   if (dot % 4 !== 0) {
+//     break;
+//   }
+// }
+// console.log(dot);
+
+// function findNumber(start, end, divisor) {
+//   for (integral = start; integral <= end; integral++) {
+//     if (integral % divisor === 0) {
+//       return integral;
+//     }
+//   }
+// }
+// console.log(findNumber(10, 30, 7));
