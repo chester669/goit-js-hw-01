@@ -759,7 +759,7 @@
 //   values.push(apartment[meaning]);
 // }
 // console.log(values);
-// console.log(keys);
+// console.log(keys);)
 
 // function countProps(object) {
 //   let propCount = 0;
@@ -782,7 +782,7 @@
 //   price: 2153,
 // };
 
-////////////////////////////////////////////// Object.values()///////////////////////////////////////
+////////////////////////////////////////////// Object.values() ///////////////////////////////////////
 
 // const keys = Object.keys(apartment);
 // const values = Object.values(apartment);
@@ -792,6 +792,7 @@
 // function countTotalSalary(salaries) {
 //   let totalSalary = 0;
 //   const values = Object.values(salaries);
+//   console.log(values);
 //   for (let i = 0; i < values.length; i++) {
 //     totalSalary += values[i];
 //   }
@@ -1017,17 +1018,710 @@
 // console.log(bestScore);
 // console.log(worstScore);
 
-const defaultSettings = {
-  theme: "light",
-  public: true,
-  withPassword: false,
-  minNumberOfQuestions: 10,
-  timePerQuestion: 60,
-};
-const overrideSettings = {
-  public: false,
-  withPassword: true,
-  timePerQuestion: 30,
-};
+// const defaultSettings = {
+//   theme: "light",
+//   public: true,
+//   withPassword: false,
+//   minNumberOfQuestions: 10,
+//   timePerQuestion: 60,
+// };
+// const overrideSettings = {
+//   public: false,
+//   withPassword: true,
+//   timePerQuestion: 30,
+// };
 
-const finalSettings = { ...defaultSettings, ...overrideSettings };
+// const finalSettings = { ...defaultSettings, ...overrideSettings };
+
+// ////////////////////////////////////////////// callback functions //////////////////////////////////////////////////
+
+// function makePizza() {
+//   return "Your pizza is being prepared, please wait.";
+// }
+
+// const result = makePizza();
+// const pointer = makePizza;
+// console.log(result);
+// console.log(pointer);
+
+// function deliverPizza(pizzaName) {
+//   return `Delivering ${pizzaName} pizza.`;
+// }
+
+// function makePizza(pizzaName) {
+//   return `Pizza ${pizzaName} is being prepared, please wait...`;
+// }
+
+// function makeMessage(pizzaName, callback) {
+//   return callback(pizzaName);
+// }
+
+////////////////////////////////////// inline callback ///////////////////////////////////////
+
+// function makePizza(pizzaName, callback) {
+//   console.log(`Pizza ${pizzaName} is being prepared, please wait...`);
+//   callback(pizzaName);
+// }
+
+// makePizza("Royal Grand", function deliverPizza(pizzaName) {
+//   console.log(`Delivering pizza ${pizzaName}`);
+// });
+
+// Доповнений виклик makePizza з інлайн колбек-функцією
+// makePizza("Ultracheese", function eatPizza(pizzaName) {
+//   console.log(`Eating pizza ${pizzaName}`);
+// });
+
+//////////////////////////////////////////////// forEach //////////////////////////////////////////
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+
+//   orderedItems.forEach(function (number) {
+//     totalPrice += number;
+//   });
+
+//   return totalPrice;
+// }
+// console.log(calculateTotalPrice([412, 371, 94, 63, 176]));
+
+// function filterArray(numbers, value) {
+//   let suitNumbers = [];
+//   numbers.forEach(function (number, index) {
+//     if (number > value) {
+//       suitNumbers.push(number);
+//     }
+//   });
+//   return suitNumbers;
+// }
+// console.log(filterArray([12, 24, 8, 41, 76], 38));
+
+////////////////////////////////////////////////////////////// arrow function//////////////////////////////////////////////////
+// const add = (quantity, pricePerItem) => {
+//   return quantity * pricePerItem;
+// };
+
+////////////// implcit return ///////////
+// const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+
+// const calculateTotalPrice = (orderedItems) => {
+//   let totalPrice = 0;
+
+//   orderedItems.forEach((item) => {
+//     totalPrice += item;
+//   });
+
+//   return totalPrice;
+// };
+// console.log(calculateTotalPrice([12, 85, 37, 4]));
+// console.log(calculateTotalPrice([164, 48, 291]));
+// console.log(calculateTotalPrice([412, 371, 94, 63, 176]));
+
+// const filterArray = (numbers, value) => {
+//   const filteredNumbers = [];
+
+//   numbers.forEach((number) => {
+//     if (number > value) {
+//       filteredNumbers.push(number);
+//     }
+//   });
+
+//   return filteredNumbers;
+// };
+
+// console.log(filterArray([1, 2, 3, 4, 5], 3));
+// console.log(filterArray([1, 2, 3, 4, 5], 4));
+// console.log(filterArray([1, 2, 3, 4, 5], 5));
+// console.log(filterArray([12, 24, 8, 41, 76], 20));
+
+/////////////////////////////////////// pure function ////////////////////////////////////////////////////
+
+// function changeEven(numbers, value) {
+//   const rightNumbers = [];
+//   for (let i = 0; i < numbers.length; i += 1) {
+//     if (numbers[i] % 2 === 0) {
+//       rightNumbers.push(numbers[i] + value);
+//     } else {
+//       rightNumbers.push(numbers[i]);
+//     }
+//   }
+//   return rightNumbers;
+// }
+// console.log(changeEven([1, 2, 3, 4, 5], 10));
+// console.log(changeEven([2, 8, 3, 7, 4, 6], 10));
+// console.log(changeEven([17, 24, 68, 31, 42], 100));
+
+//////////////////////////////////////////// map /////////////////////////////////
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+
+// const planetsLengths = planets.map((planets) => planets.length);
+
+// console.log(planetsLengths);
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+
+// const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
+// console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
+
+// const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
+// console.log(planetsInLowerCase); // ["earth", "mars", "venus", "jupiter"]
+
+// // Оригінальний масив не змінився
+// console.log(planets); // ["Earth", "Mars", "Venus", "Jupiter"]
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+// ];
+
+// const titles = books.map((book) => book.title);
+
+// console.log(titles);
+
+// const students = [
+//   { name: "Mango", score: 83 },
+//   { name: "Poly", score: 59 },
+//   { name: "Ajax", score: 37 },
+//   { name: "Kiwi", score: 94 },
+//   { name: "Houston", score: 64 },
+// ];
+
+// const names = students.map((student) => student.name);
+// console.log(names); // ["Mango", "Poly", "Ajax", "Kiwi", "Houston"]
+
+/////////////////////////////////////// floatMap //////////////////////////////////////
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     genres: ["adventure", "history"],
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     genres: ["fiction"],
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     genres: ["horror", "mysticism"],
+//   },
+// ];
+
+// const genres = books.flatMap((book) => book.genres);
+// console.log(genres);
+
+// const getUserEmails = (users) => {
+//   const emails = users.map((user) => user.email);
+//   return emails;
+// };
+
+// console.log(
+//   getUserEmails([
+//     {
+//       name: "Moore Hensley",
+//       email: "moorehensley@indexia.com",
+//       eyeColor: "blue",
+//       friends: ["Sharron Pace"],
+//       isActive: false,
+//       balance: 2811,
+//       skills: ["ipsum", "lorem"],
+//       gender: "male",
+//       age: 37,
+//     },
+//     {
+//       name: "Sharlene Bush",
+//       email: "sharlenebush@tubesys.com",
+//       eyeColor: "blue",
+//       friends: ["Briana Decker", "Sharron Pace"],
+//       isActive: true,
+//       balance: 3821,
+//       skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+//       gender: "female",
+//       age: 34,
+//     },
+//     {
+//       name: "Ross Vazquez",
+//       email: "rossvazquez@xinware.com",
+//       eyeColor: "green",
+//       friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//       isActive: false,
+//       balance: 3793,
+//       skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+//       gender: "male",
+//       age: 24,
+//     },
+//     {
+//       name: "Elma Head",
+//       email: "elmahead@omatom.com",
+//       eyeColor: "green",
+//       friends: ["Goldie Gentry", "Aisha Tran"],
+//       isActive: true,
+//       balance: 2278,
+//       skills: ["adipisicing", "irure", "velit"],
+//       gender: "female",
+//       age: 21,
+//     },
+//     {
+//       name: "Carey Barr",
+//       email: "careybarr@nurali.com",
+//       eyeColor: "blue",
+//       friends: ["Jordan Sampson", "Eddie Strong"],
+//       isActive: true,
+//       balance: 3951,
+//       skills: ["ex", "culpa", "nostrud"],
+//       gender: "male",
+//       age: 27,
+//     },
+//     {
+//       name: "Blackburn Dotson",
+//       email: "blackburndotson@furnigeer.com",
+//       eyeColor: "brown",
+//       friends: ["Jacklyn Lucas", "Linda Chapman"],
+//       isActive: false,
+//       balance: 1498,
+//       skills: ["non", "amet", "ipsum"],
+//       gender: "male",
+//       age: 38,
+//     },
+//     {
+//       name: "Sheree Anthony",
+//       email: "shereeanthony@kog.com",
+//       eyeColor: "brown",
+//       friends: ["Goldie Gentry", "Briana Decker"],
+//       isActive: true,
+//       balance: 2764,
+//       skills: ["lorem", "veniam", "culpa"],
+//       gender: "female",
+//       age: 39,
+//     },
+//   ])
+// );
+
+///////////////////////////////////////// filter //////////////////////////////////////
+const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+
+const evenNumbers = numbers.filter((number) => !(number % 2));
+const oddNumbers = numbers.filter((number) => number % 2);
+console.log(numbers);
+console.log(evenNumbers);
+console.log(oddNumbers);
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+// ];
+
+// const MIN_RATING = 8;
+// const AUTHOR = "Bernard Cornwell";
+
+// const topRatedBooks = books.filter((book) => book.rating >= MIN_RATING);
+// const booksByAuthor = books.filter((name) => name.author === AUTHOR);
+
+// console.log(topRatedBooks);
+// console.log(booksByAuthor);
+
+// const getUsersWithEyeColor = (users, color) => {
+//   const sameEyes = users.filter((user) => user.eyeColor === color);
+//   return sameEyes;
+// };
+// console.log(
+//   getUsersWithEyeColor(
+//     [
+//       {
+//         name: "Moore Hensley",
+//         email: "moorehensley@indexia.com",
+//         eyeColor: "blue",
+//
+//       },
+//       {
+//         name: "Sharlene Bush",
+//         email: "sharlenebush@tubesys.com",
+//         eyeColor: "blue",
+//
+//       },
+//       {
+//         name: "Ross Vazquez",
+//         email: "rossvazquez@xinware.com",
+//         eyeColor: "green",
+//
+//       },
+//       {
+//         name: "Elma Head",
+//         email: "elmahead@omatom.com",
+//         eyeColor: "green",
+//
+//       },
+//       {
+//         name: "Carey Barr",
+//         email: "careybarr@nurali.com",
+//         eyeColor: "blue",
+//
+//       },
+//       {
+//         name: "Blackburn Dotson",
+//         email: "blackburndotson@furnigeer.com",
+//         eyeColor: "brown",
+//
+//       },
+//       {
+//         name: "Sheree Anthony",
+//         email: "shereeanthony@kog.com",
+//         eyeColor: "brown",
+//       },
+//     ],
+//     "blue"
+//   )
+// );
+
+// const getUsersWithAge = (users, minAge, maxAge) => {
+//   const acceptebleAge = users.filter(
+//     (user) => minAge <= user.age && user.age <= maxAge
+//   );
+//   return acceptebleAge;
+// };
+
+// console.log(
+//   getUsersWithAge(
+//     [
+//       {
+//         name: "Moore Hensley",
+//         age: 37,
+//       },
+//       {
+//         name: "Sharlene Bush",
+//         age: 34,
+//       },
+//       {
+//         name: "Ross Vazquez",
+//         age: 24,
+//       },
+//       {
+//         name: "Elma Head",
+//         age: 21,
+//       },
+//       {
+//         name: "Carey Barr",
+//         age: 27,
+//       },
+//       {
+//         name: "Blackburn Dotson",
+//         age: 38,
+//       },
+//       {
+//         name: "Sheree Anthony",
+//         age: 39,
+//       },
+//     ],
+//     80,
+//     100
+//   )
+// );
+
+/////////////////////////////// find ///////////////////////////
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+// ];
+// const BOOK_TITLE = "The Dream of a Ridiculous Man";
+// const AUTHOR = "Robert Sheckley";
+// const bookWithTitle = books.find((book) => book.title === BOOK_TITLE);
+// const bookByAuthor = books.find((name) => name.author === AUTHOR);
+// console.log(bookWithTitle);
+// console.log(bookByAuthor);
+
+// const getUserWithEmail = (users, email) => {
+//   const userEmail = users.find((user) => user.email === email);
+//   return userEmail;
+// };
+
+// console.log(
+//   getUserWithEmail(
+//     [
+//       {
+//         name: "Moore Hensley",
+//         email: "moorehensley@indexia.com",
+//       },
+//       {
+//         name: "Sharlene Bush",
+//         email: "sharlenebush@tubesys.com",
+//       },
+//       {
+//         name: "Ross Vazquez",
+//         email: "rossvazquez@xinware.com",
+//       },
+//       {
+//         name: "Elma Head",
+//         email: "elmahead@omatom.com",
+//       },
+//       {
+//         name: "Carey Barr",
+//         email: "careybarr@nurali.com",
+//       },
+//       {
+//         name: "Blackburn Dotson",
+//         email: "blackburndotson@furnigeer.com",
+//       },
+//       {
+//         name: "Sheree Anthony",
+//         email: "shereeanthony@kog.com",
+//       },
+//     ],
+//     "sharlenebush@tubesys.com"
+//   )
+// );
+
+///////////////////////////////////////////////////////// every //////////////////////////////////////////////////
+
+// const isEveryUserActive = (users) => {
+//   const userOnline = users.every((user) => user.isActive === true);
+//   return userOnline;
+// };
+// console.log(
+//   isEveryUserActive([
+//     {
+//       isActive: true,
+//       balance: 2811,
+//       gender: "male",
+//     },
+//     {
+//       isActive: true,
+//       balance: 3821,
+//       gender: "female",
+//     },
+//     {
+//       isActive: true,
+//       balance: 3793,
+//       gender: "male",
+//     },
+//     {
+//       isActive: true,
+//       balance: 2278,
+//       gender: "female",
+//     },
+//     {
+//       isActive: true,
+//       balance: 3951,
+//       gender: "male",
+//     },
+//     {
+//       isActive: true,
+//       balance: 1498,
+//       gender: "male",
+//     },
+//     {
+//       isActive: true,
+//       balance: 2764,
+//       gender: "female",
+//     },
+//   ])
+// );
+
+//////////////////////////////////////////// some ///////////////////////////////
+// const isAnyUserActive = (users) => {
+//   const active = users.some((user) => user.isActive === true);
+//   return active;
+// };
+
+//////////////////////////////////// reduce //////////////////////////////
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244,
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+// const totalPlayTime = playtimes.reduce((previousValue, number) => {
+//   return previousValue + number;
+// });
+
+// const averagePlayTime = totalPlayTime / playtimes.length;
+// console.log(averagePlayTime);
+// const players = [
+//   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+//   { name: "Poly", playtime: 469, gamesPlayed: 2 },
+//   { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+//   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+// ];
+
+// const totalAveragePlaytimePerGame = players.reduce((acc, player) => {
+//   const averagePlaytimePerGame = player.playtime / player.gamesPlayed;
+//   return acc + averagePlaytimePerGame;
+// }, 0);
+
+// console.log(totalAveragePlaytimePerGame);
+
+// const calculateTotalBalance = (users) =>
+//   users.reduce((total, user) => {
+//     return total + user.balance;
+//   }, 0);
+// console.log(
+//   calculateTotalBalance([
+//     { balance: 2811 },
+//     { balance: 3821 },
+//     { balance: 3793 },
+//     { balance: 2278 },
+//   ])
+// );
+
+/////////////////////////////////////////////////////////// .toSorted() /////////////////////////////////////////////////
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// const authors = [
+//   "Tanith Lee",
+//   "Bernard Cornwell",
+//   "Robert Sheckley",
+//   "Fyodor Dostoevsky",
+// ];
+
+// const ascendingReleaseDates = releaseDates.toSorted();
+
+// const alphabeticalAuthors = authors.toSorted();
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+// const ascendingReleaseDates = releaseDates.toSorted((a, b) => a - b);
+
+// const descendingReleaseDates = releaseDates.toSorted((a, b) => b - a);
+
+//////////////////////////////////////// localeCompare //////////////////////////////////////////
+// const authors = [
+//   "Tanith Lee",
+//   "Bernard Cornwell",
+//   "Robert Sheckley",
+//   "Fyodor Dostoevsky",
+//   "Howard Lovecraft",
+// ];
+
+// const authorsInAlphabetOrder = authors.toSorted((a, b) => a.localeCompare(b));
+
+// const authorsInReversedOrder = authors.toSorted((a, b) => b.localeCompare(a));
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     rating: 7.94,
+//   },
+//   {
+//     title: "Enemy of God",
+//     author: "Bernard Cornwell",
+//     rating: 8.67,
+//   },
+// ];
+
+// const sortedByAuthorName = books.toSorted((firstBook, lastBook) =>
+//   firstBook.author.localeCompare(lastBook.author)
+// );
+
+// const sortedByReversedAuthorName = books.toSorted((firstBook, lastBook) =>
+//   lastBook.author.localeCompare(firstBook.author)
+// );
+
+// const sortedByAscendingRating = books.toSorted(
+//   (low, high) => low.rating - high.rating
+// );
+
+// const sortedByDescentingRating = books.toSorted(
+//   (low, high) => high.rating - low.rating
+// );
+
+// console.log(sortedByAuthorName);
+
+// console.log(sortedByReversedAuthorName);
+
+// console.log(sortedByAscendingRating);
+
+// console.log(sortedByDescentingRating);
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  {
+    title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+
+const names = books
+  .filter((book) => book.rating > MIN_BOOK_RATING)
+  .map((book) => book.author)
+  .toSorted((a, b) => a.localeCompare(b));
+
+console.log(names);
