@@ -1157,10 +1157,10 @@
 
 // console.log(planetsLengths);
 
-// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+const planets = ["Earth", "Mars", "Venus", "Jupiter"];
 
-// const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
-// console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
+const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
+console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
 
 // const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
 // console.log(planetsInLowerCase); // ["earth", "mars", "venus", "jupiter"]
@@ -1314,13 +1314,13 @@
 // );
 
 ///////////////////////////////////////// filter //////////////////////////////////////
-const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+// const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
 
-const evenNumbers = numbers.filter((number) => !(number % 2));
-const oddNumbers = numbers.filter((number) => number % 2);
-console.log(numbers);
-console.log(evenNumbers);
-console.log(oddNumbers);
+// const evenNumbers = numbers.filter((number) => !(number % 2));
+// const oddNumbers = numbers.filter((number) => number % 2);
+// console.log(numbers);
+// console.log(evenNumbers);
+// console.log(oddNumbers);
 
 // const books = [
 //   {
@@ -1694,34 +1694,720 @@ console.log(oddNumbers);
 
 // console.log(sortedByDescentingRating);
 
-const books = [
-  {
-    title: "The Last Kingdom",
-    author: "Bernard Cornwell",
-    rating: 8.38,
-  },
-  {
-    title: "Beside Still Waters",
-    author: "Robert Sheckley",
-    rating: 8.51,
-  },
-  {
-    title: "The Dream of a Ridiculous Man",
-    author: "Fyodor Dostoevsky",
-    rating: 7.75,
-  },
-  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
-  {
-    title: "The Dreams in the Witch House",
-    author: "Howard Lovecraft",
-    rating: 8.67,
-  },
-];
-const MIN_BOOK_RATING = 8;
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   {
+//     title: "The Dreams in the Witch House",
+//     author: "Howard Lovecraft",
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
 
-const names = books
-  .filter((book) => book.rating > MIN_BOOK_RATING)
-  .map((book) => book.author)
-  .toSorted((a, b) => a.localeCompare(b));
+// const names = books
+//   .filter((book) => book.rating > MIN_BOOK_RATING)
+//   .map((book) => book.author)
+//   .toSorted((a, b) => a.localeCompare(b));
 
-console.log(names);
+// console.log(names);
+
+/////////////////////////////////// this /////////////////////////////////
+
+// const pizzaPalace = {
+//   pizzas: ["Supercheese", "Smoked", "Four meats"],
+//   checkPizza(pizzaName) {
+//     return this.pizzas.includes(pizzaName);
+//   },
+//   order(pizzaName) {
+//     const isPizzaAvailable = this.checkPizza(pizzaName);
+
+//     if (!isPizzaAvailable) {
+//       return `Sorry, there is no pizza named «${pizzaName}»`;
+//     }
+
+//     return `Order accepted, preparing «${pizzaName}» pizza`;
+//   },
+// };
+// console.log(pizzaPalace.order("Smoked"));
+
+// Алгоритм визначення this
+
+// Ключове слово this — це одна з найзаплутаніших концепцій для новачка.
+
+// Новачки часто підставляють this методом наукового тику доти, доки скрипт не спрацює.
+
+// Але все стає значно простішим, коли є простий алгоритм визначення значення this.
+
+// Крок 1
+
+// Це стрілочна функція?
+
+// Якщо відповідь Так, значення this те саме, що у this у зовнішній області видимості
+// Якщо відповідь Ні, переходь на Крок 2
+
+// Крок 2
+
+// Чи використовуються методи call, apply або bind?
+
+// Якщо відповідь Так, значення this — це той самий об’єкт, що передали при їх виклику
+// Якщо відповідь Ні, переходь на Крок 3
+
+// Крок 3
+
+// Функція викликається як метод об’єкта object.method?
+
+// Якщо відповідь Так, значення this — це об’єкт ліворуч від крапки
+// Якщо відповідь Ні, переходь на Крок 4
+
+// Крок 4
+
+// Скрипт виконується в суворому режимі?
+
+// Якщо відповідь Так, значення this — undefined
+// Якщо відповідь Ні, значення this — window
+
+// Збережи собі цю схему, щоб швидко згадати алгоритм визначення this
+
+///////////////////////////////////////////////// prototype chain ///////////////////////////////////////////
+// const ancestor = {
+//   name: "Paul",
+//   age: 83,
+//   surname: "Dawson",
+//   heritage: "Irish",
+// };
+
+// const parent = Object.create(ancestor);
+// parent.name = "Stacey";
+// parent.surname = "Moore";
+// parent.age = 54;
+
+// const child = Object.create(parent);
+// child.name = "Jason";
+// child.age = 27;
+
+/////////////////////////////////////////////////////// classes ///////////////////////////////////////////
+// class Car {
+//   constructor(brand, model, price) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+// }
+// const auto = new Car();
+// console.log(new Car("Audi", "Q3", 36000));
+
+///////////// param ////////////
+// class Car {
+//   constructor(param) {
+//     this.brand = param.brand;
+//     this.model = param.model;
+//     this.price = param.price;
+//   }
+// }
+// new Car({ brand: "BMW", model: "X5", price: 58900 })
+
+// class Car {
+//   constructor(params) {
+//     this.brand = params.brand;
+//     this.model = params.model;
+//     this.price = params.price;
+//   }
+//   getPrice() {
+//     return this.price;
+//   }
+//   changePrice(newPrice) {
+//     this.price = newPrice;
+//   }
+// }
+
+// class Car {
+//   #brand;
+//   constructor(params) {
+//     this.#brand = params.brand;
+//     this.model = params.model;
+//     this.price = params.price;
+//   }
+//   getBrand() {
+//     return this.#brand;
+//   }
+//   changeBrand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+//   getPrice() {
+//     return this.price;
+//   }
+
+//   changePrice(newPrice) {
+//     this.price = newPrice;
+//   }
+// }
+
+// class User {
+//   name;
+//   #email;
+
+//   constructor(params) {
+//     this.name = params.name;
+//     this.#email = params.email;
+//   }
+
+//   // Публічний метод для отримання електронної пошти
+//   getEmail() {
+//     return this.#email;
+//   }
+
+//   // Публічний метод для зміни електронної пошти
+//   changeEmail(newEmail) {
+//     if (this.#validateEmail(newEmail)) {
+//       this.#email = newEmail;
+//     } else {
+//       console.log('Invalid email format');
+//     }
+//   }
+
+//   // Приватний метод для валідації електронної пошти
+//   #validateEmail(email) {
+//     return email.includes('@');
+//   }
+// }
+
+// const mango = new User({
+//   name: 'Mango',
+//   email: 'mango@mail.com',
+// });
+
+// // Спробуємо змінити електронну пошту
+// mango.changeEmail('newmail.com'); // "Invalid email format"
+// mango.changeEmail('new@mail.com');
+// console.log(mango.getEmail()); // "new@mail.com"
+
+// // Прямий виклик приватного методу ззовні призведе до помилки
+// mango.#validateEmail('test'); // Помилка
+
+// class Car {
+//   #brand;
+//   #model;
+//   #price;
+//   constructor(params) {
+//     this.#brand = params.brand;
+//     this.#model = params.model;
+//     this.#price = params.price;
+//   }
+
+//   get brand() {
+//     return this.#brand;
+//   }
+
+//   set brand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+//   get model() {
+//     return this.#model;
+//   }
+
+//   set model(newModel) {
+//     this.#model = newModel;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     this.#price = newPrice;
+//   }
+// }
+
+// class User {
+//   static roles = {
+//     admin: "admin",
+//     editor: "editor",
+// 		basic: "basic"
+//   };
+
+//   #email;
+//   #role;
+
+//   constructor(params) {
+//     this.#email = params.email;
+//     this.#role = params.role || User.roles.basic;
+//   }
+
+//   get role() {
+//     return this.#role;
+//   }
+
+//   set role(newRole) {
+//     this.#role = newRole;
+//   }
+// }
+
+// const mango = new User({
+//   email: "mango@mail.com",
+//   role: User.roles.admin,
+// });
+
+// console.log(mango.role); // "admin"
+// mango.role = User.roles.editor;
+// console.log(mango.role); // "editor"
+
+// class Car {
+//   #price;
+//   static maxPrice = 50000;
+//   constructor(params) {
+//     this.#price = params.price;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     if (newPrice <= Car.maxPrice) {
+//       this.#price = newPrice;
+//     }
+//   }
+// }
+
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
+
+// audi.price = 49000;
+// console.log(audi.price); // 49000
+
+// audi.price = 51000;
+// console.log(audi.price); // 49000
+
+// class Car {
+//   #price;
+//   static maxPrice = 50000;
+
+//   constructor(params) {
+//     this.#price = params.price;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     if (newPrice <= Car.maxPrice) {
+//       this.#price = newPrice;
+//     }
+//   }
+// }
+
+// class Car {
+//   static #maxPrice = 50000;
+//   static checkPrice(price)
+
+//   constructor(params) {
+//     this.price = params.price;
+//     if (Car.#maxPrice < this.price) {
+//       return "Error! Price exceeds the maximum"
+//     }
+//     return "Success! Price is within acceptable limits"
+//   }
+// }
+
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+// class Car {
+//   static #maxPrice = 50000;
+
+//   static checkPrice(price) {
+//     if (price > Car.#maxPrice) {
+//       return "Error! Price exceeds the maximum";
+//     }
+//     return "Success! Price is within acceptable limits";
+//   }
+
+//   constructor(params) {
+//     this.price = params.price;
+//     const result = Car.checkPrice(this.price);
+//     console.log(result);
+//   }
+// }
+
+// const audi = new Car({ price: 36000 }); // "Success! Price is within acceptable limits"
+// const bmw = new Car({ price: 64000 }); // "Error! Price exceeds the maximum"
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+///////////////////////////////////////////////////// DOM . Події//////////////////////////////////////////////////////////////
+
+/// querySelector ////
+// const link = document.querySelector(".link");
+// console.log(link.href); // "<https://goit.global>"
+// link.href = "https://neo.goit.global";
+// console.log(link.href); // "https://neo.goit.global"
+
+//// text contant ////
+
+//  const el = document.querySelector(".text")
+// const nested = document.querySelector(".sub-text")
+
+// console.log(el.textContent); // "Username: Mango"
+// console.log(nested.textContent); // "Mango"
+
+/// classList ///
+// const link = document.querySelector(".link");
+// console.log(link.classList);
+// ["link", "is-active", length: 2, value: "link is-active"]
+
+/// classList.contains ///
+// const hasActiveClass = link.classList.contains("is-active"); // true
+// const hasActiveClass = link.classList.contains("title"); // false
+
+/// classList.add() ///
+// link.classList.add("special");
+// console.log(link.classList);
+// ["link", "is-active", "special", length: 3, value: "link is-active special"]
+
+/// classList.remove()///
+// link.classList.remove("is-active");
+// console.log(link.classList);
+// ["link", "special", length: 2, value: "link special"]
+
+/// classList.toggle() ///
+// link.classList.toggle("is-active");
+// console.log(link.classList);
+// ["link", "special", "is-active", length: 3, value: "link special is-active"]
+
+/// classList.replace() ///
+// link.classList.replace("special", "regular");
+// console.log(link.classList);
+// ["link", "regular", "is-active", length: 3, value: "link regular is-active"]
+
+///////////// style //////////////
+// const button = document.querySelector(".btn");
+
+// button.style.backgroundColor = "teal";
+// button.style.fontSize = "24px";
+// button.style.textAlign = "center";
+
+// console.log(button.style); // inline styles object
+
+/// element.hasAttribute() ///
+// const image = document.querySelector(".image");
+// console.log(image.hasAttribute("src")); // true
+// console.log(image.hasAttribute("href")); // false
+
+/// element.getAttribute()///
+// console.log(image.getAttribute("alt")); // "Rocks and waterfall"
+
+///element.setAttribute (*,*) ///
+// image.setAttribute("alt", "Amazing nature");
+// console.log(image.getAttribute("alt")); // Amazing nature
+
+/// element.removeAttribute ()///
+// image.removeAttribute("alt");
+// console.log(image.hasAttribute("alt")); // false
+
+////////////////////////////////////////// data-attributes ///////////////////////////////////////
+// {
+//   /* <button type="button" data-action="save">Save text</button>
+// <button type="button" data-action="close">Close editor</button> */
+// }
+
+// const saveBtn = document.querySelector('button[data-action="save"]');
+// console.log(saveBtn.dataset.action); // "save"
+
+// const closeBtn = document.querySelector('button[data-action="close"]');
+// console.log(closeBtn.dataset.action); // "close"
+
+///// dataset////
+// Змінюємо значення data-action для кнопки saveBtn
+// saveBtn.dataset.action = "update";
+
+// // Додаємо новий data-атрибут data-role
+// saveBtn.dataset.role = "admin";
+
+// // Перевіримо нові значення
+// console.log(saveBtn.dataset.action); // "update"
+// console.log(saveBtn.dataset.role); // "admin"
+
+////document.createElement() ////
+
+// const heading = document.createElement("h1");
+// headding.classList.add("title");
+// heading.textContent = "This is a heading";
+// console.log(heading); // <h1 class="title">This is a heading</h1>
+
+// const image = document.createElement("img");
+// image.src = "<https://picsum.photos/id/11/320/240>";
+// image.alt = "Nature";
+// console.log(image); // <img src="<https://picsum.photos/id/11/320/240>" alt="Nature" />
+
+//// elem.append (*,*,...), elem.prepand(*,*,...)///
+// const list = document.querySelector(".usernames");
+
+// // Adds an item to the end of the list
+// const lastItem = document.createElement("li");
+// lastItem.textContent = "Poly";
+// list.append(lastItem);
+
+// // Adds an item to the beginning of the list
+// const firstItem = document.createElement("li");
+// firstItem.textContent = "Ajax";
+// list.prepend(firstItem);
+
+//// element.remove() ////
+// const text = document.querySelector(".text");
+// text.remove();
+
+//// innerHTML ////
+// const title = document.querySelector(".article .title");
+// title.innerHTML = 'New and <span class="accent">improved</span> title';
+
+// const technologies = ["HTML", "CSS", "JavaScript", "React", "Node"];
+// const list = document.querySelector(".list");
+
+// const markup = technologies
+//   .map((technology) => `<li class="list-item">${technology}</li>`)
+//   .join("");
+
+// // Check the console, you'll see a single string with HTML tags
+// console.log(markup);
+
+// // Adding all the markup in one operation
+// list.innerHTML = markup;
+
+// const article = document.querySelector(".article");
+// const htmlString = `<p class="article-text">Nullam quis ante. Vestibulum dapibus nunc ac augue. In consectetuer turpis ut velit.</p>
+//    <a class="link" href="#">Read more...</a>`;
+
+// // Replace += with = operator. See the difference?
+// // Article title is lost because we overwrite element content.
+// article.innerHTML += htmlString;
+
+///////// element.insertAdjacentHTML(position,sting) ///////////////
+
+// "beforebegin" — перед element
+// "afterbegin" — всередині element, перед усіма дітьми
+// "beforeend" — всередині element, після усіх дітей
+// "afterend" — після element
+
+//// element.addEventListened(event,handler,option)/////
+// event — рядок, що містить ім'я події, наприклад, "click"
+// handler — колбек-функція, яка буде викликана під час настання події
+// options — необов'язковий об'єкт параметрів із розширеними налаштуваннями
+
+// {
+//   /* <button class="my-button">Next</button>;
+// const button = document.querySelector(".my-button");
+
+// button.addEventListener("click", () => {
+//   console.log("The button was pressed and now the next image will appear");
+// }); */
+// }
+
+// const button = document.querySelector(".my-button");
+
+// const handleClick = () => {
+//   console.log("The button was pressed and now the next image will appear");
+// };
+
+// button.addEventListener("click", handleClick);
+
+///// element.removeEventListened(event,handler,option) ////////
+// const addListenerBtn = document.querySelector(".js-add");
+// const removeListenerBtn = document.querySelector(".js-remove");
+// const btn = document.querySelector(".target-btn");
+
+// const handleClick = () => {
+//   console.log("click event listener callback");
+// };
+
+// addListenerBtn.addEventListener("click", () => {
+//   btn.addEventListener("click", handleClick);
+//   console.log("click event listener was added to btn");
+// });
+
+/// event ///
+// const handleClick = (event) => {
+//   console.log(event);
+// };
+
+// button.addEventListener("click", handleClick);
+
+// event.type — тип події.
+// event.currentTarget — елемент, на якому виконується обробник події.
+
+// const button = document.querySelector(".btn");
+
+// const handleClick = (event) => {
+//   console.log("event: ", event);
+//   console.log("event type: ", event.type);
+//   console.log("currentTarget: ", event.currentTarget);
+// };
+
+// button.addEventListener("click", handleClick);
+
+///// keyboard ////
+
+// document.addEventListener("keydown", (event) => {
+//   console.log("Keydown: ", event);
+// });
+
+// document.addEventListener("keyup", (event) => {
+//   console.log("Keyup: ", event);
+// });
+
+// const clearLogBtn = document.querySelector(".js-clear");
+// const logList = document.querySelector(".log-list");
+// let keypressCounter = 1;
+
+// console.log(clearLogBtn);
+
+// document.addEventListener("keydown", logMessage);
+// document.addEventListener("keyup", logMessage);
+// clearLogBtn.addEventListener("click", reset);
+
+// function logMessage({ type, key, code }) {
+//   const markup = `<div class="log-item">
+//     <span class="chip">${keypressCounter}</span>
+//     <ul>
+//       <li><b>Event</b>: ${type}</li>
+//       <li><b>Key</b>: ${key}</li>
+//       <li><b>Code</b>: ${code}</li>
+//     </ul>
+//   </div>`;
+
+//   logList.insertAdjacentHTML("afterbegin", markup);
+
+//   if (type === "keyup") {
+//     incrementKeypressCounter();
+//   }
+// }
+
+// function reset() {
+//   keypressCounter = 1;
+//   logList.innerHTML = "";
+// }
+
+// function incrementKeypressCounter() {
+//   keypressCounter += 1;
+// }
+
+/// submit ///
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", (event) => {
+//   // ...
+// });
+
+// const form = document.querySelector("form");
+
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault();
+// });
+
+// const registerForm = document.querySelector(".form");
+
+// registerForm.addEventListener("submit", handleSubmit);
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const form = event.target;
+//   const login = form.elements.login.value;
+//   const password = form.elements.password.value;
+
+//   if (login === "" || password === "") {
+//     return console.log("Please fill in all the fields!");
+//   }
+
+//   console.log(`Login: ${login}, Password: ${password}`);
+//   form.reset();
+// }
+
+/////// input //////
+// const textInput = document.querySelector(".text-input");
+// const output = document.querySelector(".output");
+
+// textInput.addEventListener("input", (event) => {
+//   output.textContent = event.currentTarget.value;
+// });
+
+////// focus //////
+
+// EDIT ON
+// const textInput = document.querySelector(".text-input");
+// const setFocusBtn = document.querySelector('[data-action="set"]');
+// const removeFocusBtn = document.querySelector('[data-action="remove"]');
+
+// setFocusBtn.addEventListener("click", () => {
+//   textInput.focus();
+// });
+
+// removeFocusBtn.addEventListener("click", () => {
+//   textInput.blur();
+// });
+
+// textInput.addEventListener("focus", () => {
+//   textInput.value = "This input has focus";
+// });
+
+// textInput.addEventListener("blur", () => {
+//   textInput.value = "";
+// });
+
+// Згадаємо та підсумуємо основні методи і властивості DOM-елементів, з якими ми будемо працювати далі:
+
+// Пошук DOM-елементів
+
+// element.querySelector(selector) - повертає перший елемент, який відповідає вказаному CSS селектору всередині елемента element.
+// element.querySelectorAll(selector) - повертає всі елементи, які відповідають вказаному CSS селектору всередині елемента element.
+
+// Властивості DOM-елемента
+
+// element.textContent - містить текстовий вміст елемента element, ігноруючи всі теги HTML всередині.
+// element.innerHTML - містить HTML-вміст елемента element.
+// element.style - об'єкт, що містить вбудовані стилі елемента element, які можна змінювати динамічно з JavaScript.
+
+// CSS класи на DOM-елементах
+
+// element.classList.contains(className) - перевіряє, чи міститься вказаний клас className на елементі element.
+// element.classList.add(className) - додає клас className до списку класів елемента element.
+// element.classList.remove(className) - видаляє клас className зі списку класів елемента element.
+// element.classList.toggle(className) - додає клас className, якщо його немає, або видаляє, якщо він вже присутній, на елементі element.
+// element.classList.replace(oldClassName, newClassName) - замінює клас oldClassName на newClassName в списку класів елемента element.
+
+// Створення та видалення DOM-елементів
+
+// document.createElement(tagName) - створює новий HTML-елемент з вказаним ім'ям тегу tagName.
+// element.append(el) - додає вміст (або елемент) до кінця списку дочірніх елементів element.
+// element.prepend(el) - додає вміст (або елемент) до початку списку дочірніх елементів element.
+// element.remove() - видаляє DOM-елемент з DOM дерева.
+// insertAdjacentHTML(position, string) - додає вказаний рядок HTML після, перед, всередині або перед вказаним елементом.
+
+// Події
+
+// element.addEventListener(event, handler) - додає обробник події handler для події event на елемент element.
+// element.removeEventListener(event, handler) - видаляє обробник події handler для події event на елементі element.
+// keydown - подія, яка виникає, коли клавіша на клавіатурі натиснута.
+// submit - подія, яка виникає при відправці форми.
+// change - подія, яка виникає при зміні значення елемента форми.
+// input - подія, яка виникає при введенні даних в текстове поле.
+// focus - подія, яка виникає, коли елемент отримує фокус.
+// blur - подія, яка виникає, коли елемент втрачає фокус.
