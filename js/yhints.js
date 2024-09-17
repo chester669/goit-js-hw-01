@@ -1157,10 +1157,10 @@
 
 // console.log(planetsLengths);
 
-const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
 
-const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
-console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
+// const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
+// console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
 
 // const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
 // console.log(planetsInLowerCase); // ["earth", "mars", "venus", "jupiter"]
